@@ -61,9 +61,9 @@ struct ConsistencyExternalBufferTest : public VulkanTestBase
 #else
         if (!is_extension_available(device, "cl_khr_external_memory_opaque_fd"))
         {
-            throw std::runtime_error(
-                "Device does not support "
-                "cl_khr_external_memory_opaque_fd extension \n");
+            log_info("Device does not support "
+                     "cl_khr_external_memory_opaque_fd extension \n");
+            return TEST_SKIPPED_ITSELF;
         }
 #endif
 
