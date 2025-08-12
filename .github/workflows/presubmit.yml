@@ -166,6 +166,8 @@ jobs:
                 -DOPENCL_LIBRARIES="${CMAKE_OPENCL_LIBRARIES_OPTION}" \
                 -DUSE_CL_EXPERIMENTAL=ON \
                 -DGL_IS_SUPPORTED=${{ matrix.gl }} \
+                -DD3D10_IS_SUPPORTED=$([ "${{ matrix.os }}" == "windows-latest" ] && echo ON || echo OFF) \
+                -DD3D11_IS_SUPPORTED=$([ "${{ matrix.os }}" == "windows-latest" ] && echo ON || echo OFF) \
                 -DVULKAN_IS_SUPPORTED=ON \
                 -DVULKAN_INCLUDE_DIR='${{ github.workspace }}'/Vulkan-Headers/include/ \
                 -DVULKAN_LIB_DIR='${{ github.workspace }}'/Vulkan-Loader/build/loader/ \
